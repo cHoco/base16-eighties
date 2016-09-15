@@ -38,6 +38,32 @@ let s:cterm06 = "13"
 let s:cterm09 = "09"
 let s:cterm0F = "14"
 
+" Neovim color definitions for terminal mode
+if has("nvim")
+  let g:terminal_color_0 =  "#" . s:gui00
+  let g:terminal_color_1 =  "#" . s:gui08
+  let g:terminal_color_2 =  "#" . s:gui0B
+  let g:terminal_color_3 =  "#" . s:gui0A
+  let g:terminal_color_4 =  "#" . s:gui0D
+  let g:terminal_color_5 =  "#" . s:gui0E
+  let g:terminal_color_6 =  "#" . s:gui0C
+  let g:terminal_color_7 =  "#" . s:gui05
+  let g:terminal_color_8 =  "#" . s:gui03
+  let g:terminal_color_9 =  "#" . s:gui09
+  let g:terminal_color_10 = "#" . s:gui01
+  let g:terminal_color_11 = "#" . s:gui02
+  let g:terminal_color_12 = "#" . s:gui04
+  let g:terminal_color_13 = "#" . s:gui06
+  let g:terminal_color_14 = "#" . s:gui0F
+  let g:terminal_color_15 = "#" . s:gui07
+  let g:terminal_color_background = g:terminal_color_0
+  let g:terminal_color_foreground = g:terminal_color_7
+  if &background == "light"
+    let g:terminal_color_background = g:terminal_color_7
+    let g:terminal_color_foreground = g:terminal_color_2
+  endif
+endif
+
 " Theme setup
 hi clear
 if exists("syntax_on")
@@ -166,7 +192,7 @@ call s:HL("TabLineSel",    s:gui0B, s:gui01, s:cterm0B, s:cterm01, "none", "")
 " Standard syntax highlighting
 call s:HL("Boolean",      s:gui09, "", s:cterm09, "", "", "")
 call s:HL("Character",    s:gui08, "", s:cterm08, "", "", "")
-call s:HL("Comment",      s:gui03, "", s:cterm03, "", "", "")
+call s:HL("Comment",      s:gui03, "", s:cterm03, "", "italic", "")
 call s:HL("Conditional",  s:gui0E, "", s:cterm0E, "", "", "")
 call s:HL("Constant",     s:gui09, "", s:cterm09, "", "", "")
 call s:HL("Define",       s:gui0E, "", s:cterm0E, "", "none", "")
